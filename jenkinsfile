@@ -6,8 +6,7 @@ pipeline {
             steps {
                 script {
                     echo "Building the application..."
-                     sh "make -C main clean && make -C main hello_exec"
-                     sh 'make -C main clean'
+                    sh "make -C main clean && make -C main hello_exec"
                 }
             }
         }
@@ -16,6 +15,7 @@ pipeline {
             steps {
                 script {
                     echo "Running tests..."
+                    sh 'chmod +x main/hello_exec'
                     sh "./main/hello_exec"
                 }
             }
